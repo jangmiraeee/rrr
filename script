@@ -1,0 +1,135 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "noob script",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "로딩중...",
+   LoadingSubtitle = "holyfakeyou",
+   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+
+   Discord = {
+      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("메인이다!", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("메인")
+
+Rayfield:Notify({
+   Title = "실행중이다!",
+   Content = "굿!",
+   Duration = 5,
+   Image = nil,
+        Actions = { -- Notification Buttons
+	Ignore = {
+		Name = "알겠어!",
+		Callback = function()
+			print("The user tapped Okay!")
+		end
+	},
+},
+})
+
+local Slider = MainTab:CreateSlider({
+	Name = "스피드 핵",
+	Range = {0, 500},
+	Increment = 1,
+	Suffix = "speed",
+	CurrentValue = 16,
+	Flag = "slider1", -- A flag is the identifier for the configuration file, make sure it is unique!
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "뭠추기",
+   Callback = function()
+    local ScreenGui = Instance.new("ScreenGui") local Frame = Instance.new("Frame") local FreezeButton = Instance.new("TextButton")  ScreenGui.Name = "FreezeGUI" ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui") ScreenGui.ResetOnSpawn = false Frame.Parent = ScreenGui Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30) Frame.BorderColor3 = Color3.fromRGB(20, 20, 20) Frame.Size = UDim2.new(0, 150, 0, 40) Frame.Position = UDim2.new(0.5, -75, 0.1, 0)  Frame.Active = true  Frame.Draggable = true  FreezeButton.Parent = Frame FreezeButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50) FreezeButton.BorderColor3 = Color3.fromRGB(30, 30, 30) FreezeButton.Size = UDim2.new(0.9, 0, 0.8, 0) FreezeButton.Position = UDim2.new(0.05, 0, 0.1, 0) FreezeButton.Text = "Freeze" FreezeButton.TextColor3 = Color3.fromRGB(255, 255, 255) FreezeButton.TextSize = 14  local isFrozen = false FreezeButton.MouseButton1Click:Connect(function() local character = game.Players.LocalPlayer.Character if character then local humanoidRootPart = character:FindFirstChild("HumanoidRootPart") if humanoidRootPart then isFrozen = not isFrozen humanoidRootPart.Anchored = isFrozen FreezeButton.Text = isFrozen and "Unfreeze" or "Freeze" FreezeButton.BackgroundColor3 = isFrozen and Color3.fromRGB(80, 0, 0) or Color3.fromRGB(50, 50, 50) end end end)
+    end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "인피니티 점프",
+   Callback = function()
+    loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Infinite%20Jump.txt"))()
+    end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "피쉬",
+   Callback = function()
+    loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Fisch%20Hub%20-%20Annie%20Hub.txt"))()
+    end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "블록스 푸르츠",
+   Callback = function()
+    loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Blox%20Fruits%20Hub.txt"))()
+    end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "한국 머더",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ZISULAs/Korean-Murder/refs/heads/main/By-zisula", true))()
+    end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "인피니티 야드",
+   Callback = function()
+    loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Infinite%20Yield.txt"))()
+    end,
+    })
+
+local Button = MainTab:CreateButton({
+   Name = "브레아크인 1",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Bebo-Mods/XHub/main/HubLoader.lua", true))()
+        end,
+    })
+
+local Button = MainTab:CreateButton({
+   Name = "브레아크인 2",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/RScriptz/RobloxScripts/main/BreakIn2.lua"))()
+    end,
+    })
+
+local Button = MainTab:CreateButton({
+   Name = "graw a garden",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+    end,
+    })
+
+local Button = MainTab:CreateButton({
+   Name = "타워 오브 헬",
+   Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/YHUB-Community/refs/heads/main/Tower-of-hell.lua"))()
+        end,
+    })
